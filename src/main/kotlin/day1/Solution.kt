@@ -5,11 +5,14 @@ import java.time.Duration
 import java.time.LocalDateTime
 
 class Solution {
+
+    // Parse elves from input and find the elf with the highest calorie count
     fun part1(input: List<String>): Int {
         val elves = parseElves(input)
         return elves.maxOf { e -> e.calorieCount }
     }
 
+    // Parse elves from input, sort the list, then sum the three highest calorie counts
     fun part2(input: List<String>): Int {
         var elves = parseElves(input)
         elves = elves.sortedBy { e -> e.calorieCount }
@@ -17,6 +20,12 @@ class Solution {
         return elves.subList(elves.size - 3, elves.size).sumOf { e -> e.calorieCount }
     }
 
+    /**
+     * Initialise list with first elf
+     * Iterate over the input lines
+     * If line cannot be parsed to integer, a new elf must be added as the line is empty
+     * If line can be parsed to integer, add the value from the line into the last elf in the list
+     */
     private fun parseElves(input: List<String>): List<Elf> {
         var addElf = false
         val elves = ArrayList<Elf>()
