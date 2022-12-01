@@ -12,7 +12,9 @@ repositories {
 }
 
 dependencies {
+    implementation("org.apache.commons:commons-lang3:3.12.0")
     testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
 }
 
 tasks.test {
